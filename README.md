@@ -1,72 +1,75 @@
-# Gerçek Zamanlı Obje Tespiti ve Trafik Kural İhlali Analizi
+# 🚦 Real-Time Object Detection & Traffic Violation Analysis
 
-Bu proje, bilgisayarla görü teknikleri kullanılarak yaya ve taşıtları gerçek zamanlı olarak tespit etmeyi ve trafik kurallarına uyumu analiz etmeyi amaçlamaktadır. Sistem, video akışı üzerinden gelen görüntülerde nesneleri tanır, konumlarını analiz eder ve belirli bölgeler ile çakışmaları değerlendirerek ihlalleri işaretler.
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-Numerical_Computing-013243?logo=numpy&logoColor=white)](https://numpy.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
----
+A computer vision system that detects pedestrians and vehicles in real time from video footage and analyzes their compliance with traffic rules.
+The system recognizes objects in the video stream, tracks their positions, and flags violations by checking for overlaps with predefined zones.
 
-## Projenin Amacı
+## 📑 Table of Contents
 
-- Dörtyol ve yaya geçidi gibi kritik bölgelerde yaya ve taşıt tespiti
-- Trafik kurallarına aykırı hareketlerin otomatik olarak belirlenmesi
-- İhlal durumlarının kullanıcıya görsel olarak gösterilmesi
+- [Purpose](#-purpose)
+- [Tech Stack](#-tech-stack)
+- [Algorithm Flow](#-algorithm-flow)
+- [Defined Zones](#-defined-zones)
+- [Results](#-results)
+- [Getting Started](#-getting-started)
 
----
+## 🎯 Purpose
 
-## Kullanılan Teknolojiler
+- Detect pedestrians and vehicles in critical areas such as intersections and crosswalks
+- Automatically identify movements that violate traffic rules
+- Visually flag violations for the user
 
-- **Python 3**
-- `OpenCV` – Görüntü işleme
-- `NumPy` – Matematiksel işlemler
-- `cv2.createBackgroundSubtractorMOG2()` – Arka plan çıkarımı
-- `cv2.findContours()` – Kontur analizi
-- `cv2.pointPolygonTest()` – Bölge çakışma kontrolü
+## 🛠 Tech Stack
 
----
+| Technology | Purpose |
+|---|---|
+| **Python 3** | Core language |
+| **OpenCV** | Image processing |
+| **NumPy** | Numerical computation |
+| `cv2.createBackgroundSubtractorMOG2()` | Background subtraction |
+| `cv2.findContours()` | Contour analysis |
+| `cv2.pointPolygonTest()` | Zone overlap detection |
 
-## Algoritmanın Akışı
+## ⚙️ Algorithm Flow
 
-1. Video kaynağı alınır
-2.  Her kare için:
-   - Grayscale dönüşüm + Gaussian Blur uygulanır
-   - Arka plan çıkarımı yapılır (MOG2)
-   - Eşikleme ve morfolojik işlemler ile görüntü netleştirilir
-   - Kontur analizi ile nesneler tespit edilir
-   - Boy/en oranına göre **yaya** veya **taşıt** olarak sınıflandırılır
-   - Tanımlı bölgelere (dörtyol/yaya geçidi) göre **ihlal analizi** yapılır
-   - Her nesne, sınıfına göre renkli olarak çerçevelenir
-   - Görüntü üzerine ihlal etiketi eklenir
+1. Video source is loaded.
+2. For each frame:
+   - Convert to grayscale and apply Gaussian blur
+   - Perform background subtraction (MOG2)
+   - Clean up the image using thresholding and morphological operations
+   - Detect objects through contour analysis
+   - Classify each object as a pedestrian or vehicle based on aspect ratio
+   - Analyze violations against predefined zones (intersection / crosswalk)
+   - Draw a color-coded bounding box around each object based on its class
+   - Add a violation label on the frame when applicable
 
----
+## 🗺️ Defined Zones
 
-##  Tanımlı Bölgeler
+- **Intersection Zone:** An area pedestrians should not cross.
+- **Crosswalk Zone:** An area vehicles should not violate.
 
--  **Dörtyol Bölgesi:** Yayaların geçmemesi gereken alan
--  **Yaya Geçidi:** Taşıtların ihlal etmemesi gereken alan
+## 📊 Results
 
----
+- Pedestrians and vehicles are detected with high accuracy.
+- Violations within defined zones are successfully identified.
+- The real-time visual alert mechanism works as intended.
 
-## Sonuçlar
+## 🚀 Getting Started
 
-- Yüksek doğrulukla yaya ve taşıt tespiti sağlanmıştır.
-- Tanımlı alanlara göre ihlaller başarılı şekilde algılanmıştır.
-- Gerçek zamanlı görsel uyarı mekanizması çalışmaktadır.
-
----
-
-## Projeyi Çalıştırmak İçin
-
-### Gerekli Kütüphaneleri Yükleyin:
+1. Install the required libraries:
 
 ```bash
 pip install opencv-python numpy
 ```
 
-### Ardından `proje_odevi.py` dosyasını çalıştırın:
+2. Run the script:
 
 ```bash
-python proje_odevi.py
+python main.py
 ```
 
-> **Not:** `Train.mp4` ve `Test.mp4` dosyalarının proje dizininde bulunduğundan emin olun.
-
----
+> **Note:** Make sure `Train.mp4` and `Test.mp4` are present in the project directory before running.
