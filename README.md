@@ -1,4 +1,4 @@
-# 🚦 Real-Time Object Detection & Traffic Violation Analysis
+#  Real-Time Object Detection & Traffic Violation Analysis
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Computer_Vision-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
@@ -8,7 +8,7 @@
 A computer vision system that detects pedestrians and vehicles in real time from video footage and analyzes their compliance with traffic rules.
 The system recognizes objects in the video stream, tracks their positions, and flags violations by checking for overlaps with predefined zones.
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Purpose](#-purpose)
 - [Tech Stack](#-tech-stack)
@@ -17,13 +17,13 @@ The system recognizes objects in the video stream, tracks their positions, and f
 - [Results](#-results)
 - [Getting Started](#-getting-started)
 
-## 🎯 Purpose
+##  Purpose
 
 - Detect pedestrians and vehicles in critical areas such as intersections and crosswalks
 - Automatically identify movements that violate traffic rules
 - Visually flag violations for the user
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -34,7 +34,7 @@ The system recognizes objects in the video stream, tracks their positions, and f
 | `cv2.findContours()` | Contour analysis |
 | `cv2.pointPolygonTest()` | Zone overlap detection |
 
-## ⚙️ Algorithm Flow
+##  Algorithm Flow
 
 1. Video source is loaded.
 2. For each frame:
@@ -47,18 +47,18 @@ The system recognizes objects in the video stream, tracks their positions, and f
    - Draw a color-coded bounding box around each object based on its class
    - Add a violation label on the frame when applicable
 
-## 🗺️ Defined Zones
+##  Defined Zones
 
 - **Intersection Zone:** An area pedestrians should not cross.
 - **Crosswalk Zone:** An area vehicles should not violate.
 
-## 📊 Results
+##  Results
 
 - Pedestrians and vehicles are detected with high accuracy.
 - Violations within defined zones are successfully identified.
 - The real-time visual alert mechanism works as intended.
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Install the required libraries:
 
